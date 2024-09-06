@@ -1,0 +1,43 @@
+// Employee class
+class Employee {
+    private String name;
+    private double salary;
+
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+}
+
+// FullTimeEmployee subclass
+class FullTimeEmployee extends Employee {
+    private int yearsOfService;
+
+    public FullTimeEmployee(String name, double salary, int yearsOfService) {
+        super(name, salary);
+        this.yearsOfService = yearsOfService;
+    }
+
+    public double calculateSalary() {
+        return getSalary() + (yearsOfService * 1000);
+    }
+}
+
+public class EmployeeManagementSystem {
+    public static void main(String[] args) {
+        // Create employees
+        FullTimeEmployee john = new FullTimeEmployee("John Doe", 50000, 6);
+
+        // Display employee details
+        System.out.println("Name: " + john.getName());
+        System.out.println("Salary: " + john.calculateSalary());
+    }
+}
